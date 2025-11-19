@@ -1,0 +1,123 @@
+/* Fonte opcional */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* Fundo geral da página */
+body {
+    background-color: #0f144a; /* Azul escuro */
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    padding-bottom: 40px;
+}
+
+/* Título */
+h2 {
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Área do container principal */
+.container {
+    max-width: 800px; /* Aumentei um pouco para dar mais respiro no desktop */
+    margin: auto;
+}
+
+/* --- ESTILOS DO CARROSSEL --- */
+
+/* Configuração das Imagens */
+.carousel-item img {
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.45);
+    
+    /* MUDANÇA IMPORTANTE: */
+    width: 100%;
+    
+    /* Altura para Desktop: 85% da altura da tela ou max 920px */
+    height: 85vh; 
+    max-height: 920px;
+    
+    /* 'contain' garante que a imagem inteira apareça (essencial para textos/tabelas) */
+    object-fit: contain;
+    
+    /* Garante que se a imagem for estreita, o fundo seja da cor do site */
+    background-color: #0f144a; 
+}
+
+/* Botões de navegação (setas) */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1) drop-shadow(0px 0px 2px rgba(0,0,0,0.5)); /* Adicionei sombra para contraste */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%; /* Área de clique um pouco maior */
+}
+
+/* Indicadores (as bolinhas) */
+.carousel-indicators {
+    /* Ajustado para ficar dentro da área da imagem/container */
+    margin-bottom: 1rem; 
+}
+
+.carousel-indicators button {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50%;
+    border: 1px solid #0f144a; /* Borda sutil */
+    opacity: 0.7;
+}
+
+.carousel-indicators .active {
+    background-color: #ffffff;
+    opacity: 1;
+    transform: scale(1.2); /* Destaque visual na ativa */
+}
+
+/* Efeito suave da transição */
+.carousel.carousel-fade .carousel-item {
+    transition: opacity 0.6s ease-in-out;
+}
+
+/* Animação leve ao trocar de slide */
+.carousel-item img {
+    animation: fadeIn 0.7s ease-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0.5; transform: scale(0.98); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* --- RESPONSIVIDADE (CELULAR) --- */
+@media (max-width: 768px) {
+    
+    /* Título menor no celular */
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 10px;
+    }
+
+    /* Ajuste da imagem para telas pequenas */
+    .carousel-item img {
+        /* Altura fixa maior para caber flyers verticais */
+        height: 65vh; 
+        min-height: 500px; /* Garante que não fique minúsculo */
+        
+        object-fit: contain; /* Impede cortes na imagem */
+    }
+
+    /* As setas ficam um pouco menores no mobile para não atrapalhar */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    
+    /* Ajuste da margem inferior do container */
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
